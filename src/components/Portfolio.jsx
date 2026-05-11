@@ -1,27 +1,29 @@
-import { projects } from '../data/projects';
+import { projects } from "../data/projects";
 
 export default function Portfolio() {
   return (
-    <section className="section section-portfolio" id="portfolio">
-      <div className="container section-head">
-        <span className="section-label">RECENT PROJECTS</span>
-        <h2>Portfolio of Completed Signage Work</h2>
-        <p className="section-subtitle">Real installations from shopfronts, glass graphics, vehicle branding and in-store wayfinding.</p>
-      </div>
-
+    <section className="section portfolio-section" id="work">
       <div className="container">
+        <div className="section-heading reveal">
+          <span className="eyebrow">Selected Work</span>
+          <h2>PROJECTS WITH STREET PRESENCE</h2>
+          <p>
+            A focused look at signage categories that help businesses become easier to find,
+            remember and trust.
+          </p>
+        </div>
+
         <div className="portfolio-grid">
-          {projects.map(project => (
-            <article
-              key={project.id}
-              className="portfolio-item"
-              style={{
-                backgroundImage: `linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.75)), url('/assets/images/${project.image}')`
-              }}
-            >
-              <div className="portfolio-meta">
+          {projects.map((project) => (
+            <article className="project-card reveal" key={project.title}>
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
+                <div className="project-overlay" />
+              </div>
+              <div className="project-copy">
                 <span>{project.category}</span>
                 <h3>{project.title}</h3>
+                <p>{project.description}</p>
               </div>
             </article>
           ))}

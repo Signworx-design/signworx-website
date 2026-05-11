@@ -1,62 +1,65 @@
+import {
+  BadgeCheck,
+  Car,
+  Lightbulb,
+  PanelsTopLeft,
+  Printer,
+  Ruler,
+  Shirt,
+  Snowflake,
+  Store,
+  TriangleAlert,
+} from "lucide-react";
+
 export const services = [
   {
-    id: 1,
-    title: 'Vehicle Branding',
-    icon: '🚗',
-    description: 'Custom wraps and fleet graphics built for durable road use and strong brand visibility.'
+    icon: Car,
+    title: "Vehicle Branding",
+    description: "Fleet graphics, wraps and decals that turn every trip into visible brand exposure.",
   },
   {
-    id: 2,
-    title: 'Shop Signage',
-    icon: '🏬',
-    description: 'Premium exterior signage that creates high-impact storefront presence for retail and corporate spaces.'
+    icon: Store,
+    title: "Shopfront Signage",
+    description: "Bold exterior signage manufactured to pull attention from the street and guide customers in.",
   },
   {
-    id: 3,
-    title: 'Lightboxes',
-    icon: '💡',
-    description: 'Backlit displays designed for sharp illumination, crisp colour reproduction and long service life.'
+    icon: Lightbulb,
+    title: "Lightboxes",
+    description: "Illuminated signage boxes built for clean visibility through day, night and weather.",
   },
   {
-    id: 4,
-    title: 'CNC Cutting',
-    icon: '🛠️',
-    description: 'Precision CNC fabrication for custom letters, logos and architectural signage panels.'
+    icon: Ruler,
+    title: "CNC Cutting",
+    description: "Precision-cut lettering, panels and branding elements for sharp dimensional finishes.",
   },
   {
-    id: 5,
-    title: 'Frosted Vinyl',
-    icon: '🎯',
-    description: 'Professional privacy films and decorative window finishes with strong branding lines.'
+    icon: Snowflake,
+    title: "Frosted Vinyl",
+    description: "Professional privacy films and glass branding for offices, stores and reception areas.",
   },
   {
-    id: 6,
-    title: 'Window Graphics',
-    icon: '🪟',
-    description: 'Full window branding and storefront wraps engineered for durability and visual clarity.'
+    icon: PanelsTopLeft,
+    title: "Window Graphics",
+    description: "High-impact window decals, campaign graphics and retail displays made to fit the space.",
   },
   {
-    id: 7,
-    title: 'Large Format Printing',
-    icon: '🖨️',
-    description: 'High-resolution printing that delivers bold signage, banners and displays at scale.'
+    icon: Printer,
+    title: "Large Format Printing",
+    description: "Crisp banners, posters, wall graphics and print runs produced for serious brand presence.",
   },
   {
-    id: 8,
-    title: 'Safety Signs',
-    icon: '⚠️',
-    description: 'Regulatory signage produced in premium substrates for construction, industrial and workplace safety.'
+    icon: TriangleAlert,
+    title: "Safety Signs",
+    description: "Clear, durable compliance signage for factories, sites, warehouses and public spaces.",
   },
   {
-    id: 9,
-    title: 'Chromadek Signs',
-    icon: '🔩',
-    description: 'Weather-resistant chromadek panels with refined finishes for corporate and architectural signage.'
+    icon: BadgeCheck,
+    title: "Chromadek Signs",
+    description: "Tough outdoor metal signage panels made for long-lasting visibility and clean finishes.",
   },
   {
-    id: 10,
-    title: 'Custom Apparel Branding',
-    icon: '👕',
-    description: 'Teamwear, uniforms and branded garments with professional embroidery and print finishes.'
-  }
+    icon: Shirt,
+    title: "Apparel Branding",
+    description: "Branded workwear and promotional apparel finished with practical, professional detail.",
+  },
 ];

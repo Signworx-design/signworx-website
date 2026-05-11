@@ -1,12 +1,18 @@
+import whatsappIcon from "../assets/images/whatsapp.svg";
+
+const whatsappNumber = "27630752497";
+const message = "Hello Signworx, I would like to request a quote.";
+
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/27630752497?text=Hello%20Signworx%2C%20I%20would%20like%20to%20request%20a%20quote."
+      className="whatsapp-float"
+      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
       target="_blank"
       rel="noreferrer"
-      className="whatsapp-float"
+      aria-label="Request a quote on WhatsApp"
     >
-      WhatsApp Quote
+      <img src={whatsappIcon} alt="" aria-hidden="true" />
     </a>
   );
 }

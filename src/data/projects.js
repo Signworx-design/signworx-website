@@ -1,38 +1,45 @@
+import bannerPrinting from "../assets/images/banner-printing.jpg";
+import cncLettering from "../assets/images/cnc-lettering.jpg";
+import lightboxSign from "../assets/images/lightbox-sign.jpg";
+import shopfrontSign from "../assets/images/shopfront-sign.jpg";
+import vehicleBranding from "../assets/images/vehicle-branding.jpg";
+import windowGraphics from "../assets/images/window-graphics.jpg";
+
 export const projects = [
   {
-    id: 1,
-    title: 'Fleet Wrap Application',
-    category: 'Vehicle Branding',
-    image: 'project-vehicle.jpg'
+    category: "Vehicle Branding",
+    title: "Fleet Graphics Built for Daily Exposure",
+    description: "Full vehicle branding with clean panel alignment and durable exterior vinyl.",
+    image: vehicleBranding,
   },
   {
-    id: 2,
-    title: 'Exterior Signage Panel',
-    category: 'Illuminated Signs',
-    image: 'project-lightbox.jpg'
+    category: "Lightbox Signage",
+    title: "Illuminated Retail Presence",
+    description: "A sharp lightbox build designed for night visibility and premium frontage.",
+    image: lightboxSign,
   },
   {
-    id: 3,
-    title: 'Retail Entrance Branding',
-    category: 'Shopfronts',
-    image: 'project-shopfront.jpg'
+    category: "Shopfront Signage",
+    title: "Street-Level Brand Impact",
+    description: "Dimensional shopfront signage with strong contrast and practical readability.",
+    image: shopfrontSign,
   },
   {
-    id: 4,
-    title: 'Privacy and Display Vinyl',
-    category: 'Window Graphics',
-    image: 'project-window.jpg'
+    category: "Banner Printing",
+    title: "Large Format Campaign Print",
+    description: "High-resolution banner printing prepared for events, launches and promotions.",
+    image: bannerPrinting,
   },
   {
-    id: 5,
-    title: 'Counter and Pay Point Branding',
-    category: 'Shop Signage',
-    image: 'project-counter.jpg'
+    category: "CNC Lettering",
+    title: "Precision-Cut Letterforms",
+    description: "CNC-cut branding components finished for depth, shadow and clean installation.",
+    image: cncLettering,
   },
   {
-    id: 6,
-    title: 'Branded Retail Panels',
-    category: 'Banners & Prints',
-    image: 'project-largeformat.jpg'
-  }
+    category: "Window Graphics",
+    title: "Glass Branding With Purpose",
+    description: "Retail and office window graphics that add privacy, visibility and polish.",
+    image: windowGraphics,
+  },
 ];

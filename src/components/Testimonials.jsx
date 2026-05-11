@@ -1,34 +1,19 @@
-import { useState, useEffect } from 'react';
-import { testimonials } from '../data/testimonials';
+import { testimonials } from "../data/testimonials";
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % testimonials.length);
-    }, 7000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section className="section section-testimonials">
-      <div className="container section-head">
-        <span className="section-label">TESTIMONIALS</span>
-        <h2>Trusted by industry leaders</h2>
-      </div>
-
+    <section className="section testimonials-section">
       <div className="container">
-        <div className="testimonial-slider">
-          {testimonials.map((testimonial, index) => (
-            <article
-              key={testimonial.id}
-              className={`testimonial-card ${index === currentIndex ? 'active' : ''}`}
-            >
-              <div className="quote-mark">"</div>
-              <p>{testimonial.quote}</p>
-              <span className="client-name">- {testimonial.author}</span>
+        <div className="section-heading reveal">
+          <span className="eyebrow">Client Notes</span>
+          <h2>TRUSTED FOR SIGNAGE THAT HAS TO LOOK RIGHT</h2>
+        </div>
+
+        <div className="testimonial-grid">
+          {testimonials.map((testimonial) => (
+            <article className="testimonial-card reveal" key={testimonial.company}>
+              <p>"{testimonial.quote}"</p>
+              <strong>{testimonial.company}</strong>
             </article>
           ))}
         </div>

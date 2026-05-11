@@ -1,54 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import signworxLogo from "../assets/images/signworx-logo.svg";
+
+const navItems = [
+  { label: "Home", id: "home" },
+  { label: "Services", id: "services" },
+  { label: "Work", id: "work" },
+  { label: "Process", id: "process" },
+  { label: "About", id: "about" },
+  { label: "Contact", id: "contact" },
+];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const quoteEmail =
+    "mailto:info@signworx.co.za?subject=Signworx%20Quote%20Request&body=Hello%20Signworx%2C%0A%0AI%20would%20like%20to%20request%20a%20quote.%0A%0AProject%20details%3A%0A";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToSection = (id) => {
-    setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const goTo = (id) => {
+    setOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container navbar-inner">
-        <a href="#home" className="navbar-brand" onClick={() => scrollToSection('home')}>
-          <img src="/assets/logo-full.png" alt="Signworx" />
-        </a>
-
-        <button 
-          className="nav-toggle" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle navigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+    <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+      <div className="container nav-inner">
+        <button className="wordmark" onClick={() => goTo("home")} aria-label="Go to homepage">
+          <img src={signworxLogo} alt="Signworx" />
         </button>
 
-        <nav className={`navbar-nav ${isMenuOpen ? 'open' : ''}`}>
-          <a onClick={() => scrollToSection('home')}>Home</a>
-          <a onClick={() => scrollToSection('services')}>Services</a>
-          <a onClick={() => scrollToSection('portfolio')}>Portfolio</a>
-          <a onClick={() => scrollToSection('about')}>About</a>
-          <a onClick={() => scrollToSection('contact')}>Contact</a>
+        <nav className={`nav-links ${open ? "is-open" : ""}`} aria-label="Main navigation">
+          {navItems.map((item) => (
+            <button key={item.id} onClick={() => goTo(item.id)}>
+              {item.label}
+            </button>
+          ))}
         </nav>
 
-        <a href="mailto:info@signworx.co.za?subject=Request%20Quote" className="btn-primary">
+        <a className="quote-button nav-quote" href={quoteEmail}>
           Get Quote
         </a>
+
+        <button
+          className="menu-button"
+          onClick={() => setOpen((value) => !value)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
     </header>
   );

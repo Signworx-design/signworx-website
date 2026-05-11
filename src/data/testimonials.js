@@ -1,17 +1,17 @@
 export const testimonials = [
   {
-    id: 1,
-    quote: 'Signworx delivered our signage professionally and on time. The finish was excellent and the installation team knew exactly what they were doing.',
-    author: 'Automotive Retail Group'
+    quote:
+      "Signworx understood exactly what our storefront needed. The final signage is clean, visible and professionally installed.",
+    company: "Retail Client",
   },
   {
-    id: 2,
-    quote: 'Our vehicle branding came out clean, sharp and exactly as approved. Proper service from start to finish.',
-    author: 'Commercial Property Developer'
+    quote:
+      "Our vehicle branding came out sharp and consistent across the fleet. The team handled design, print and application smoothly.",
+    company: "Logistics Client",
   },
   {
-    id: 3,
-    quote: 'Reliable, professional and easy to work with. The signage made a massive difference to our shopfront.',
-    author: 'Franchise Operations Manager'
-  }
+    quote:
+      "Reliable advice, quick production and a finish that looks premium. They made the whole signage process simple.",
+    company: "Business Owner",
+  },
 ];

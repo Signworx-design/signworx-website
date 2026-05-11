@@ -1,52 +1,62 @@
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+import signworxLogo from "../assets/images/signworx-logo.svg";
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const quickLinks = [
+  { label: "Home", id: "home" },
+  { label: "Services", id: "services" },
+  { label: "Work", id: "work" },
+  { label: "Process", id: "process" },
+  { label: "About", id: "about" },
+  { label: "Contact", id: "contact" },
+];
+
+const services = [
+  "Vehicle Branding",
+  "Shopfront Signage",
+  "Lightboxes",
+  "CNC Cutting",
+  "Large Format Printing",
+];
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+  const goTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <footer className="footer">
-      <div className="footer-top"></div>
-      <div className="container footer-inner">
-        <div className="footer-brand">
-          <img src="/assets/logo-mark.png" alt="Signworx" />
-          <p>Premium signage manufacturing and installation across South Africa.</p>
+      <div className="container footer-layout">
+        <div>
+          <img className="footer-logo" src={signworxLogo} alt="Signworx" />
+          <p>Leaders in Signage</p>
         </div>
 
-        <div className="footer-links">
-          <div>
-            <h4>Quick Links</h4>
-            <a onClick={() => scrollToSection('home')}>Home</a>
-            <a onClick={() => scrollToSection('services')}>Services</a>
-            <a onClick={() => scrollToSection('portfolio')}>Portfolio</a>
-            <a onClick={() => scrollToSection('contact')}>Contact</a>
-          </div>
-          <div>
-            <h4>Services</h4>
-            <a onClick={() => scrollToSection('services')}>Vehicle Branding</a>
-            <a onClick={() => scrollToSection('services')}>Lightboxes</a>
-            <a onClick={() => scrollToSection('services')}>CNC Cutting</a>
-            <a onClick={() => scrollToSection('services')}>Large Format</a>
-          </div>
+        <div>
+          <h3>Quick Links</h3>
+          {quickLinks.map((link) => (
+            <button key={link.id} onClick={() => goTo(link.id)}>
+              {link.label}
+            </button>
+          ))}
         </div>
 
-        <div className="footer-social">
-          <h4>Connect</h4>
-          <div className="social-icons">
-            <a href="https://wa.me/27630752497" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a href="mailto:info@signworx.co.za">Email</a>
-            <a href="tel:+27630752497">Phone</a>
-          </div>
+        <div>
+          <h3>Services</h3>
+          {services.map((service) => (
+            <button key={service} onClick={() => goTo("services")}>
+              {service}
+            </button>
+          ))}
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+          <a href="tel:+27446951078">044 695 1078</a>
+          <a href="mailto:info@signworx.co.za">info@signworx.co.za</a>
+          <a href="https://www.facebook.com/Signworx" target="_blank" rel="noreferrer">
+            Facebook: Signworx
+          </a>
         </div>
       </div>
-
-      <div className="footer-bottom">
-        <span>&copy; {currentYear} Signworx. All rights reserved.</span>
-      </div>
+      <div className="footer-bottom">Copyright {year} Signworx. All rights reserved.</div>
     </footer>
   );
 }

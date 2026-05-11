@@ -1,140 +1,104 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Mail, MapPin, MessageCircle, Phone, Send, Share2 } from "lucide-react";
+
+const emptyForm = {
+  name: "",
+  company: "",
+  phone: "",
+  email: "",
+  message: "",
+};
+
+const contactEmail = "info@signworx.co.za";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [form, setForm] = useState(emptyForm);
+  const [sent, setSent] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const updateField = (event) => {
+    setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowSuccess(true);
-    setFormData({
-      name: '',
-      company: '',
-      phone: '',
-      email: '',
-      message: ''
-    });
-    setTimeout(() => setShowSuccess(false), 5000);
+  const submitForm = (event) => {
+    event.preventDefault();
+    const subject = encodeURIComponent("Signworx Website Enquiry");
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nCompany: ${form.company || "Not supplied"}\nPhone: ${form.phone}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+    );
+
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    setSent(true);
+    setForm(emptyForm);
   };
 
   return (
-    <section className="section section-contact" id="contact">
-      <div className="container contact-inner">
-        <div className="contact-info">
-          <span className="section-label">CONTACT</span>
-          <h2>Ready to start your signage project?</h2>
-          <p>Reach out for a quote, project consultation or site survey across South Africa.</p>
+    <section className="section contact-section" id="contact">
+      <div className="container contact-layout">
+        <div className="contact-copy reveal">
+          <span className="eyebrow">Start a Project</span>
+          <h2>READY TO MAKE YOUR BRAND VISIBLE?</h2>
+          <p>
+            Send through the signage, branding, print or installation work you need quoted. The
+            Signworx team will help with practical advice, production and installation.
+          </p>
 
-          <div className="contact-block">
-            <strong>Phone</strong>
-            <a href="tel:+27630752497">+27 63 075 2497</a>
+          <div className="contact-methods">
+            <a href="tel:+27446951078">
+              <Phone size={20} />
+              <span>044 695 1078</span>
+            </a>
+            <a href="mailto:info@signworx.co.za">
+              <Mail size={20} />
+              <span>info@signworx.co.za</span>
+            </a>
+            <a href="https://www.facebook.com/Signworx" target="_blank" rel="noreferrer">
+              <Share2 size={20} />
+              <span>Facebook: Signworx</span>
+            </a>
+            <div>
+              <MapPin size={20} />
+              <span>Address placeholder, South Africa</span>
+            </div>
           </div>
-          <div className="contact-block">
-            <strong>Email</strong>
-            <a href="mailto:info@signworx.co.za">info@signworx.co.za</a>
-          </div>
-          <div className="contact-block">
-            <strong>Address</strong>
-            <span>8 Sioux St, Voorbaai, Mossel Bay, 6500</span>
-          </div>
-          <a 
+
+          <a
+            className="quote-button contact-whatsapp"
             href="https://wa.me/27630752497?text=Hello%20Signworx%2C%20I%20would%20like%20to%20request%20a%20quote."
             target="_blank"
             rel="noreferrer"
-            className="btn-primary"
-            style={{ display: 'block', marginTop: '1.5rem', textAlign: 'center' }}
           >
+            <MessageCircle size={18} />
             WhatsApp Us
           </a>
         </div>
 
-        <div className="contact-form">
-          <form onSubmit={handleSubmit} className="form-group">
-            <div className="form-grid">
-              <label className="form-label">
-                <span>Name</span>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label className="form-label">
-                <span>Company</span>
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Company name"
-                  value={formData.company}
-                  onChange={handleChange}
-                />
-              </label>
-              <label className="form-label">
-                <span>Phone</span>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label className="form-label">
-                <span>Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
-            <label className="form-label form-full">
-              <span>Message</span>
-              <textarea
-                name="message"
-                placeholder="Tell us about your project"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </label>
-            <button type="submit" className="btn-submit">Submit Enquiry</button>
-          </form>
-
-          {showSuccess && (
-            <div className="success-message">
-              Thank you. Your enquiry has been prepared. We will contact you shortly.
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="container" style={{ marginTop: '2rem' }}>
-        <div className="map-placeholder">
-          <span>Google Maps placeholder - add integration here</span>
-        </div>
+        <form className="contact-form reveal" onSubmit={submitForm}>
+          <label>
+            <span>Name</span>
+            <input name="name" value={form.name} onChange={updateField} required />
+          </label>
+          <label>
+            <span>Company</span>
+            <input name="company" value={form.company} onChange={updateField} />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input name="phone" type="tel" value={form.phone} onChange={updateField} required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" value={form.email} onChange={updateField} required />
+          </label>
+          <label className="wide-field">
+            <span>Message</span>
+            <textarea name="message" rows="6" value={form.message} onChange={updateField} required />
+          </label>
+          <button className="quote-button submit-button" type="submit">
+            <Send size={18} />
+            Submit Enquiry
+          </button>
+          {sent && <p className="success-message">Thank you. Your enquiry has been received.</p>}
+        </form>
       </div>
     </section>
   );

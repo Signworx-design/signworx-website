@@ -1,93 +1,43 @@
-import { useEffect, useState, useRef } from 'react';
+import { CheckCircle2 } from "lucide-react";
+import shopfrontSign from "../assets/images/shopfront-sign.jpg";
+
+const features = [
+  "In-house production",
+  "Professional installation",
+  "Premium materials",
+  "Fast turnaround",
+  "Practical signage advice",
+];
 
 export default function About() {
-  const [statsAnimated, setStatsAnimated] = useState(false);
-  const [stats, setStats] = useState({
-    years: 0,
-    projects: 0,
-    clients: 0
-  });
-  const statsRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !statsAnimated) {
-            setStatsAnimated(true);
-            animateStats();
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [statsAnimated]);
-
-  const animateStats = () => {
-    const targets = { years: 30, projects: 5000, clients: 1000 };
-    const duration = 2000;
-    const steps = duration / 30;
-
-    Object.keys(targets).forEach(key => {
-      const target = targets[key];
-      const stepIncrement = target / steps;
-      let current = 0;
-
-      const counter = setInterval(() => {
-        current += stepIncrement;
-        if (current >= target) {
-          setStats(prev => ({ ...prev, [key]: target }));
-          clearInterval(counter);
-        } else {
-          setStats(prev => ({ ...prev, [key]: Math.floor(current) }));
-        }
-      }, 30);
-    });
-  };
-
   return (
-    <section className="section" id="about">
-      <div className="container about-inner">
-        <div className="about-image"></div>
-
-        <div className="about-copy">
-          <span className="section-label">BUILT ON EXPERIENCE</span>
-          <h2>Signworx delivers industrial-grade signage built to last.</h2>
-          <p>Driven by 30 years of local craft, we manufacture in-house, manage installations and support clients nationwide with premium production standards.</p>
-          <ul className="about-list">
-            <li>30 years industry experience</li>
-            <li>In-house manufacturing</li>
-            <li>Professional installations</li>
-            <li>Nationwide service coverage</li>
-            <li>Premium materials only</li>
-            <li>Fast turnaround times</li>
-          </ul>
-
-          <div className="stats-grid" ref={statsRef}>
-            <div className="stat-card">
-              <strong><span className="stat-number">{stats.years}</span><span className="stat-symbol">+</span></strong>
-              <span>Years Experience</span>
-            </div>
-            <div className="stat-card">
-              <strong><span className="stat-number">{stats.projects}</span><span className="stat-symbol">+</span></strong>
-              <span>Projects Delivered</span>
-            </div>
-            <div className="stat-card">
-              <strong><span className="stat-number">{stats.clients}</span><span className="stat-symbol">+</span></strong>
-              <span>Clients Served</span>
-            </div>
-            <div className="stat-card">
-              <strong>24<span className="stat-symbol">/7</span></strong>
-              <span>Support</span>
-            </div>
+    <section className="section about-section" id="about">
+      <div className="container about-layout">
+        <div className="about-media reveal">
+          <img src={shopfrontSign} alt="Signworx shopfront signage work" />
+          <div className="about-stamp">
+            <strong>30+</strong>
+            <span>Years on the tools</span>
           </div>
+        </div>
+
+        <div className="about-copy reveal">
+          <span className="eyebrow">BUILT ON EXPERIENCE</span>
+          <h2>BUILT ON EXPERIENCE</h2>
+          <p>
+            Signworx has spent over 30 years helping businesses stand out with professional signage,
+            vehicle branding, lightboxes, large format printing and custom manufactured branding
+            solutions.
+          </p>
+
+          <ul className="feature-list">
+            {features.map((feature) => (
+              <li key={feature}>
+                <CheckCircle2 size={18} />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
