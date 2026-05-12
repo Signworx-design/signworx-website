@@ -1,6 +1,6 @@
 import bannerPrinting from "../assets/images/banner-printing.jpg";
 import cncLettering from "../assets/images/cnc-lettering.jpg";
-import lightboxSign from "../assets/images/lightbox-sign.jpg";
+import haloEffectSignage from "../assets/images/halo-effect-signage.gif";
 import shopfrontSign from "../assets/images/shopfront-sign.jpg";
 import vehicleBranding from "../assets/images/vehicle-branding.jpg";
 import windowGraphics from "../assets/images/window-graphics.jpg";
@@ -13,10 +13,11 @@ export const projects = [
     image: vehicleBranding,
   },
   {
-    category: "Lightbox Signage",
-    title: "Illuminated Retail Presence",
-    description: "A sharp lightbox build designed for night visibility and premium frontage.",
-    image: lightboxSign,
+    category: "Halo Effect Signage",
+    title: "Premium Halo Illumination",
+    description:
+      "Elegant halo-lit lettering designed for luxury visibility and high-end storefront branding.",
+    image: haloEffectSignage,
   },
   {
     category: "Shopfront Signage",
