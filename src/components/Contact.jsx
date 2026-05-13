@@ -57,7 +57,7 @@ export default function Contact() {
             </a>
             <div>
               <MapPin size={20} />
-              <span>Address placeholder, South Africa</span>
+              <span>8 Sioux St, Voorbaai, Mossel Bay, 6500</span>
             </div>
           </div>
 
