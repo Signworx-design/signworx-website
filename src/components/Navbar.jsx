@@ -47,7 +47,7 @@ export default function Navbar() {
         </nav>
 
         <a className="quote-button nav-quote" href={quoteEmail}>
-          Get Quote
+          Get a Quote
         </a>
 
         <button

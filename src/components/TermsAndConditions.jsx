@@ -34,12 +34,12 @@ export default function TermsAndConditions() {
   return (
     <section className="section terms-section" id="terms">
       <div className="container">
-        <div className="section-heading reveal">
+        <div className="section-heading">
           <span className="eyebrow">By Order Management</span>
           <h2>TERMS & CONDITIONS</h2>
         </div>
 
-        <ol className="terms-list reveal">
+        <ol className="terms-list">
           {terms.map((term, index) => (
             <li key={`${index + 1}-${term.slice(0, 18)}`}>
               <span>{String(index + 1).padStart(2, "0")}</span>

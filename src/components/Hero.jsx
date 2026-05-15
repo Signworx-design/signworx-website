@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Award, Megaphone, Printer, Wrench } from "lucide-react";
 import heroImage from "../assets/images/hero-signworx.png";
+import sLogo from "../assets/images/s-logo.svg";
+import signworxWordmark from "../assets/images/signworx-wordmark.svg";
 
 const stats = [
   { value: 30, suffix: "+", label: "Years Strong", icon: Award },
@@ -54,7 +56,7 @@ function CountUpStat({ value, suffix = "", text, label, icon: Icon }) {
 
   return (
     <div ref={statRef}>
-      <Icon size={34} strokeWidth={1.8} />
+      <Icon size={28} strokeWidth={1.45} />
       <span className="stat-copy">
         <strong>{isCounter ? `${count}${suffix}` : text}</strong>
         <span>{label}</span>
@@ -74,17 +76,17 @@ export default function Hero() {
       <div className="hero-shade" />
       <div className="container hero-inner">
         <div className="hero-copy reveal">
-          <span className="eyebrow">LEADERS IN SIGNAGE</span>
-          <h1>
-            <span>SIGNAGE THAT</span>
-            <span>MAKES YOUR</span>
-            <span className="hero-red-word">BUSINESS</span>
-            <span>IMPOSSIBLE TO MISS</span>
-          </h1>
-          <p>
-            Custom manufactured signage, vehicle branding, lightboxes, CNC lettering and large
-            format print solutions built for real businesses.
-          </p>
+          <div className="hero-brand-stack">
+            <img className="hero-logo-mark" src={sLogo} alt="Signworx" />
+            <img className="hero-wordmark" src={signworxWordmark} alt="Signworx" />
+            <p className="hero-brand-line">
+              <span>LEADERS IN CORPORATE SIGNAGE</span>
+              <span>SINCE 1997</span>
+            </p>
+            <p className="hero-brand-summary">
+              Custom signage, branding, apparel, vehicle graphics and fabrication.
+            </p>
+          </div>
           <div className="hero-actions">
             <a className="quote-button" href={quoteEmail}>
               GET A QUOTE
