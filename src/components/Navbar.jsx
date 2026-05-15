@@ -5,9 +5,11 @@ import signworxLogo from "../assets/images/signworx-logo.svg";
 const navItems = [
   { label: "Home", id: "home" },
   { label: "Services", id: "services" },
+  { label: "Maintenance", id: "maintenance" },
   { label: "Work", id: "work" },
   { label: "Process", id: "process" },
   { label: "About", id: "about" },
+  { label: "Terms", id: "terms" },
   { label: "Contact", id: "contact" },
 ];
 

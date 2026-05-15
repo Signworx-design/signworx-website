@@ -3,11 +3,13 @@ import Navbar from "./components/Navbar";
 import AnnouncementTicker from "./components/AnnouncementTicker";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import MaintenanceOfSigns from "./components/MaintenanceOfSigns";
 import Portfolio from "./components/Portfolio";
 import Process from "./components/Process";
 import About from "./components/About";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Testimonials from "./components/Testimonials";
+import TermsAndConditions from "./components/TermsAndConditions";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -38,11 +40,13 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <MaintenanceOfSigns />
         <Portfolio />
         <Process />
         <About />
         <WhyChooseUs />
         <Testimonials />
+        <TermsAndConditions />
         <Contact />
       </main>
       <Footer />
